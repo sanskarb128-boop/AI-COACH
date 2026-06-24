@@ -139,7 +139,7 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1 className="title">AI Interview Coach</h1>
-        <p className="subtitle">Practice real interview rounds, get scored answers</p>
+        <p className="subtitle">Practice for Web Development Interviews</p>
       </header>
 
       <div className="mode-container">
