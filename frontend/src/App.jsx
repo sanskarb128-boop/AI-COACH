@@ -58,7 +58,7 @@ function App() {
       setReport(null);
       setMessages([]);
 
-      const response = await axios.post("https://ai-interview-coach-backend-iiyt.onrender.com/chat", {
+      const response = await axios.post("https://ai-interview-coach-backend-iiyt.onrender.com/start", {
         interviewType,
       });
 
@@ -81,7 +81,7 @@ function App() {
     try {
       setLoading(true);
 
-      const response = await axios.post("", {
+      const response = await axios.post("https://ai-interview-coach-backend-iiyt.onrender.com/chat", {
         history: updatedHistory,
         interviewType,
       });
@@ -104,7 +104,7 @@ function App() {
     try {
       setLoading(true);
 
-      const response = await axios.post("http://localhost:5000/end", {
+      const response = await axios.post("https://ai-interview-coach-backend-iiyt.onrender.com/end", {
         history: messages,
         interviewType,
       });
