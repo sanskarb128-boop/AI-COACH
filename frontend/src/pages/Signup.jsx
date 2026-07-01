@@ -15,7 +15,7 @@ function Signup() {
   const handleSignup = async () => {
     try {
       await axios.post(
-    "http://localhost:5000/api/auth/signup",
+    "https://ai-interview-coach-backend-iiyt.onrender.com/api/auth/signup",
     {
         name,
         email,
