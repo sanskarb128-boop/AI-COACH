@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./auth.css";
-
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 function Login() {
@@ -16,7 +16,8 @@ function Login() {
     const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+    const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = async () => {
     try {
@@ -51,11 +52,27 @@ function Login() {
         onChange={(e) => setEmail(e.target.value)}
       />
 
-      <input
-        type="password"
-        placeholder="Password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
+      <div className="input-group">
+
+  <div className="password-wrapper">
+    <input
+      type={showPassword ? "text" : "password"}
+      placeholder="Enter your password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      onKeyDown={(e) => {
+          if (e.key === "Enter") {handleLogin();}
+      }}
+    />
+
+    <span
+      className="password-toggle"
+      onClick={() => setShowPassword(!showPassword)}
+    >
+      {showPassword ? <FaEyeSlash /> : <FaEye />}
+    </span>
+  </div>
+</div>
 
       <button onClick={handleLogin}>
         Login

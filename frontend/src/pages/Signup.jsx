@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./auth.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function Signup() {
   const navigate = useNavigate();
@@ -9,6 +10,7 @@ function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSignup = async () => {
     try {
@@ -59,13 +61,21 @@ function Signup() {
             }
           />
 
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={(e) =>
-              setPassword(e.target.value)
-            }
-          />
+          <div className="password-wrapper">
+  <input
+    type={showPassword ? "text" : "password"}
+    placeholder="Password"
+    value={password}
+    onChange={(e) => setPassword(e.target.value)}
+  />
+
+  <span
+    className="password-toggle"
+    onClick={() => setShowPassword(!showPassword)}
+  >
+    {showPassword ? <FaEyeSlash /> : <FaEye />}
+  </span>
+</div>
 
           <button
             className="auth-button"

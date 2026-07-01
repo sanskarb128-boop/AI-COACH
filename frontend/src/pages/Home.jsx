@@ -159,7 +159,7 @@ function Home() {
     {user ? (
       <>
         <div className="user-info">
-          <span>👋 Welcome, {user.name}</span>
+          <span><h3>👋 Welcome, {user.name}</h3></span>
 
           <button className="logout-btn" onClick={logout}>
             Sign Out
@@ -215,7 +215,7 @@ function Home() {
                   <div className={`message-bubble ${isAi ? "ai-bubble" : "user-bubble"}`}>
                     <ReactMarkdown>{msg.text}</ReactMarkdown>
                   </div>
-                  {!isAi && <div className="avatar user-avatar">S</div>}
+                  {!isAi && <div className="avatar user-avatar">{user.name.charAt(0)}</div>}
                 </div>
               );
             })}

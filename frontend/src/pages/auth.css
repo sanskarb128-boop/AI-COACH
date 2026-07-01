@@ -39,11 +39,11 @@
 
 .auth-form input:focus {
   outline: none;
-  border-color: #f59e0b;
+  border-color: #f15901;
 }
 
 .auth-button {
-  background: #f59e0b;
+  background: #f15901;
   color: black;
   border: none;
   padding: 14px;
@@ -54,7 +54,7 @@
 }
 
 .auth-button:hover {
-  background: #fbbf24;
+  background: #eba37c;
 }
 
 .auth-link {
@@ -64,8 +64,13 @@
 }
 
 .auth-link a {
-  color: #f59e0b;
+  color: #f15901;
   text-decoration: none;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+  color: #eba37c;
 }
 
 .auth-container {
@@ -106,10 +111,14 @@
   padding: 14px;
   border: none;
   border-radius: 10px;
-  background: orange;
+  background: #f15901;
   color: black;
   font-weight: bold;
   cursor: pointer;
+}
+
+.auth-card button:hover {
+  background: #eba37c;
 }
 
 .auth-card p {
@@ -119,5 +128,61 @@
 }
 
 .auth-card a {
-  color: orange;
+  color: #f15901;
+}
+
+.auth-card a:hover {
+  color: #eba37c;
+  text-decoration: underline;
+}
+
+.input-group {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  color: #f15901;
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding: 16px 50px 16px 18px;
+  border: 1px solid #2a3441;
+  border-radius: 16px;
+  background: #1a2433;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.password-wrapper input:focus {
+  border-color: #f15901;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 18px;
+  top: 40%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #cfcfcf;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.password-toggle:hover {
+  color: #f15901;
 }
