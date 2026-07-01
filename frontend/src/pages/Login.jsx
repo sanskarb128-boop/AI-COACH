@@ -35,7 +35,6 @@ function Login() {
         );
       navigate("/");
 
-      alert("Login Successful");
     } catch (error) {
       alert(error.response.data.message);
     }
