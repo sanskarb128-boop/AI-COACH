@@ -3,11 +3,22 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const Groq = require("groq-sdk");
+const connectDB = require("./config/db");
+const authRoutes = require("./routes/authRoutes");
+const protect = require("./middelware/authMiddelware");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use("/api/auth", authRoutes);
+
+app.get("/profile", protect, (req, res) => {
+  res.json({
+    message: "Protected Route Accessed",
+    user: req.user,
+  });
+});
 
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
@@ -16,6 +27,7 @@ const groq = new Groq({
 app.get("/", (req, res) => {
   res.send("Backend Running");
 });
+
 
 // Build a system prompt per interview type
 function buildSystemPrompt(interviewType) {
@@ -135,6 +147,8 @@ Review the entire conversation above and produce a final report with this exact 
 });
 
 const PORT = process.env.PORT || 5000;
+
+connectDB();
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
