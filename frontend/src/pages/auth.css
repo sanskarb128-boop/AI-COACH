@@ -186,3 +186,37 @@
 .password-toggle:hover {
   color: #f15901;
 }
+
+.theme-btn {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.auth-theme-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+body.light .auth-card {
+  background: white;
+  color: black;
+}
+
+body.light .auth-input {
+  background: #f1f5f9;
+  color: black;
+}
+
+body.light .auth-input::placeholder {
+  color: #64748b;
+}
+
+body.light .auth-link {
+  color: #2563eb;
+}

@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef, useContext } from "react";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
@@ -6,7 +7,7 @@ import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const MODES = ["JavaScript", "React", "Node.js", "MongoDB", "HR"];
-const TYPE_SPEED_MS = 12; // ms per character for the typing animation
+const TYPE_SPEED_MS = 12;
 
 function Home() {
   const [message, setMessage] = useState("");
@@ -19,7 +20,6 @@ function Home() {
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  // Typing animation state: the AI text currently being revealed char-by-char
   const [typingText, setTypingText] = useState(null);
   const typingIndexRef = useRef(0);
   const typingIntervalRef = useRef(null);
@@ -30,13 +30,10 @@ function Home() {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading, typingText]);
 
-  // Clean up any running typing interval on unmount
   useEffect(() => {
     return () => clearInterval(typingIntervalRef.current);
   }, []);
 
-  // Reveals fullText into the chat one character at a time, then commits
-  // it as a normal message once done.
   const playTypingAnimation = (fullText) => {
     clearInterval(typingIntervalRef.current);
     typingIndexRef.current = 0;
@@ -146,7 +143,7 @@ function Home() {
 
   <p className="subtitle">
     Practice for Web Development Interviews
-  </p>
+        </p>
 
   <div
     style={{

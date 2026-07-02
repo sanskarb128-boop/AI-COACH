@@ -37,7 +37,6 @@ app.get("/", (req, res) => {
 });
 
 
-// Build a system prompt per interview type
 function buildSystemPrompt(interviewType) {
   return `
 You are an expert ${interviewType} technical interviewer.
@@ -52,7 +51,6 @@ Rules:
 `;
 }
 
-// Start a new interview - returns the first question
 app.post("/start", async (req, res) => {
   try {
     const { interviewType } = req.body;
@@ -75,11 +73,9 @@ app.post("/start", async (req, res) => {
   }
 });
 
-// Continue interview - now takes full conversation history so context is preserved
 app.post("/chat", async (req, res) => {
   try {
     const { history, interviewType } = req.body;
-    // history: array of { sender: "user" | "ai", text: string }
 
     const conversation = history.map((m) => ({
       role: m.sender === "user" ? "user" : "assistant",
@@ -101,7 +97,6 @@ app.post("/chat", async (req, res) => {
   }
 });
 
-// End interview - generates a final score report from the full transcript
 app.post("/end", async (req, res) => {
   try {
     const { history, interviewType } = req.body;

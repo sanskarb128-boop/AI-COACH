@@ -1,3 +1,4 @@
+
 import { useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
@@ -44,7 +45,6 @@ function Login() {
   <div className="auth-container">
     <div className="auth-card">
       <h2>Login</h2>
-
       <input
         type="email"
         placeholder="Email"
