@@ -22,7 +22,7 @@ function Login() {
   const handleLogin = async () => {
     try {
       const res = await axios.post(
-        "https://ai-interview-coach-backend-iiyt.onrender.com/api/auth/signup",
+        "https://ai-interview-coach-backend-iiyt.onrender.com/api/auth/login",
         {
           email,
           password,
