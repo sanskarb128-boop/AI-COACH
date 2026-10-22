@@ -63,7 +63,7 @@ app.post("/start", async (req, res) => {
           content: "Begin the interview. Ask your first question only, do not score anything yet.",
         },
       ],
-      model: "llama-3.3-70b-versatile",
+      model: "openai/gpt-oss-20b",
     });
 
     res.json({ reply: completion.choices[0].message.content });
@@ -87,7 +87,7 @@ app.post("/chat", async (req, res) => {
         { role: "system", content: buildSystemPrompt(interviewType) },
         ...conversation,
       ],
-      model: "llama-3.3-70b-versatile",
+      model: "openai/gpt-oss-20b",
     });
 
     res.json({ reply: completion.choices[0].message.content });
@@ -139,7 +139,7 @@ Review the entire conversation above and produce a final report with this exact 
         ...conversation,
         { role: "user", content: "The interview is over. Give my final score report now." },
       ],
-      model: "llama-3.3-70b-versatile",
+      model: "openai/gpt-oss-20b",
     });
 
     res.json({ reply: completion.choices[0].message.content });
